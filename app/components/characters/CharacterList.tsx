@@ -1,3 +1,4 @@
+"use client";
 import { Character } from "@/lib/api/character";
 import { CharacterCard } from "./CharacterCard";
 import { useEpisodes, CharacterListId } from "@/app/hooks/useEpisodes";

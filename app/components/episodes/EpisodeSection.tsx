@@ -1,3 +1,4 @@
+"use client";
 import { Episode, fetchEpisodes } from "@/lib/api/episode";
 import { useQuery } from "@tanstack/react-query";
 import { AsyncView } from "../ui/AsyncView";
