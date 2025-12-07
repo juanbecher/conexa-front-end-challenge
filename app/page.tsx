@@ -1,13 +1,20 @@
-import { CharacterSection } from "./components/characters/CharacterSection";
+import { EpisodesPanel } from "./components/episodes/EpisodesPanel";
+import { CharactersPanel } from "./components/characters/CharactersPanel";
 
 export default function Home() {
   return (
     <main>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Section 1 */}
-        <CharacterSection id="1" title="Character #1" />
-        {/* Section 2 */}
-        <CharacterSection id="2" title="Character #2" />
+      <div className="grid gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-center">
+            Rick and Morty Episodes Comparison by Characters
+          </h2>
+          <p className="text-gray-500 text-center">
+            Select two characters to compare their episodes
+          </p>
+        </div>
+        <CharactersPanel />
+        <EpisodesPanel />
       </div>
     </main>
   );

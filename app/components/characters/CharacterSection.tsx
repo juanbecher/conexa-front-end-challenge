@@ -8,12 +8,17 @@ import { CharacterList } from "./CharacterList";
 import { CharacterListSkeleton } from "./CharacterListSkeleton";
 import { AsyncView } from "../ui/AsyncView";
 import { Pagination } from "../ui/Pagination";
+import { CharacterListId } from "@/app/hooks/useEpisodes";
 
 interface CharacterSectionProps {
-  id: string;
+  id: CharacterListId;
   title: string;
 }
-export const CharacterSection = ({ id, title }: CharacterSectionProps) => {
+
+export const CharacterSection = ({
+  id,
+  title,
+}: CharacterSectionProps) => {
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 500);
   const [page, setPage] = useState(1);
@@ -29,7 +34,7 @@ export const CharacterSection = ({ id, title }: CharacterSectionProps) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-8 rounded-lg bg-cyan-50 min-h-full">
+    <div className="flex flex-col gap-4 p-8 rounded-lg bg-cyan-50 min-h-[450px]">
       <h2 className="text-2xl font-bold">{title}</h2>
       <TextInput
         placeholder="Search by character name"
@@ -55,7 +60,7 @@ export const CharacterSection = ({ id, title }: CharacterSectionProps) => {
         >
           {(data) => (
             <>
-              <CharacterList characters={data.results} sectionId={id} />
+              <CharacterList characters={data.results} listId={id} />
               <Pagination
                 currentPage={page}
                 totalPages={data.info.pages}
